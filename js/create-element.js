@@ -13,6 +13,28 @@ export const createElement = (tag, className, parent, options = {}) => {
     element.alt = options.image[1];
   }
 
+  // input
+  if (options.type) {
+    element.type = options.type;
+  }
+
+  if (options.name) {
+    element.name = options.name;
+  }
+
+  // progress
+  if (options.id) {
+    element.id = options.id;
+  }
+
+  if (options.value) {
+    element.value = options.value;
+  }
+
+  if (options.max) {
+    element.max = options.max;
+  }
+
   parent.append(element);
   return element;
 };
