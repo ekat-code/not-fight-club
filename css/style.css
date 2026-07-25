@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #5e5a5a;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.nav__list {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+}
+
+.nav__item {
+  cursor: pointer;
+}
+
+/* main */
+.main__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.name-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* battle */
+.wrapper__battle {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.wrapper__battle__enemy,
+.wrapper__battle__character {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.character-avatar {
+  width: 20vw;
+}
+
+.enemy {
+  width: 20vw;
+}
+
+/* zone */
+.wrapper__battle__zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.zone__lists {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.label {
+  display: flex;
+}
+
+button.btn__fight {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.wrapper__battle-log {
+  border-top: 1px solid #5e5a5a;
+  width: 100vw;
+}
