@@ -70,21 +70,29 @@ const createZoneLists = (wrapperBattleZone) => {
   createElement('h5', 'zone__list__subtitle', zoneDefense, { text: 'Defense' });
   createElement('button', 'btn__fight', wrapperBattleZone, { text: 'fight!' });
 
-  createZoneList(listAttack, zoneAttack);
-  createZoneList(listDefense, zoneDefense);
+  createZoneList(listAttack, zoneAttack, 'attack', 1);
+  createZoneList(listDefense, zoneDefense, 'defense', 2);
 };
 
 // функция для создания checkbox
-const createZoneList = (arr, zone) => {
+const createZoneList = (arr, zone, zoneName, max) => {
   arr.forEach((item) => {
     const label = createElement('label', 'label', zone);
-    createElement('input', 'input', label, {
+    const input = createElement('input', 'input', label, {
       type: 'checkbox',
-      name: 'zone-attack',
+      name: `zone-${zoneName}`,
       value: item,
     });
 
     createElement('span', '', label, { text: item });
+
+    // проверка на количество выбранных вариантов
+    input.addEventListener('change', () => {
+      const checked = zone.querySelectorAll(`input[name="zone-${zoneName}"]:checked`);
+      if (checked.length > max) {
+        input.checked = false;
+      }
+    });
   });
 };
 
