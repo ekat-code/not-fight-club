@@ -3,9 +3,11 @@ import { player } from './script.js';
 import { handleClickBtnStart } from './handlers-click.js';
 import { listAttack, listDefense } from './list-attack-defense.js';
 import { removeClassList } from './remove-class-list.js';
+import { enemy } from './enemy.js';
 
 const headerText = document.querySelector('.header__text');
 const mainContainer = document.querySelector('.main__container');
+const randomNum = Math.floor(Math.random() * 4);
 
 // функция создания основной страницы
 export const createHomeScreen = () => {
@@ -50,7 +52,9 @@ export const createBattlePage = () => {
   const wrapperBattleEnemy = createElement('div', 'wrapper__battle__enemy', containerBattle);
 
   createElement('img', 'character-avatar', wrapperBattleCharacter, { image: [player.img, 'character'] });
-  createElement('img', 'enemy', wrapperBattleEnemy, { image: ['./img/enemy/enemy-1.jpg', 'enemy'] });
+  createElement('h4', 'battle__enemy__title', wrapperBattleCharacter, { text: player.name });
+  createElement('img', 'enemy', wrapperBattleEnemy, { image: [enemy[randomNum].img, 'enemy'] });
+  createElement('h4', 'battle__character__title', wrapperBattleEnemy, { text: enemy[randomNum].name });
 
   createZoneLists(wrapperBattleZone);
   createHealthScale(wrapperBattleCharacter, wrapperBattleEnemy);
